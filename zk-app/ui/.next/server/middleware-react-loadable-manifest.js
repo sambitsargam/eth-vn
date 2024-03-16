@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"zkappWorker.ts -> ../../../contracts/build/src/Add.js\":{\"id\":\"zkappWorker.ts -> ../../../contracts/build/src/Add.js\",\"files\":[\"static/chunks/contracts_build_src_Add_js.js\"]}}"

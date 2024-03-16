@@ -4,7 +4,7 @@ type Transaction = Awaited<ReturnType<typeof Mina.transaction>>;
 
 // ---------------------------------------------------------------------------------------
 
-import type { RecycleCompany, Report, Requirements } from '../../../contracts/src/Add';
+import { RecycleCompany, Report, Requirements } from '../../../contracts/src/Add';
 
 const state = {
   RecycleCompany: null as null | typeof RecycleCompany,
@@ -40,6 +40,7 @@ const functions = {
     return JSON.stringify(currentNum!.toJSON());
   },
   createPublishReportTransaction: async (args: { report: Report }) => {
+    console.log('createPublishReportTransaction: ', args.report)
     const transaction = await Mina.transaction(() => {
       state.zkapp!.publishReport(args.report);
     });

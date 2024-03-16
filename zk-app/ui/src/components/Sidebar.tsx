@@ -7,13 +7,13 @@ const NavigationBar = () => {
 
         <div>
             <button id="verifierBtn" >
-            Verifier
+            Organization
             </button>
             <button id="adminBtn" >
             Admin
             </button>
             <button id="orgaizationBtn" >
-              Organization
+               Verifier
             </button>
         </div>
       </div>

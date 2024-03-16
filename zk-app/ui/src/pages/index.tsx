@@ -47,10 +47,11 @@ export default function NewReport() {
 
     myLog('Publishing account request report hash...');
 
+
     await state.zkappWorkerClient!.fetchAccount({
       publicKey: state.publicKey!,
     });
-
+    console.log('report', report)
 
     myLog('creating transaction...');
     await state.zkappWorkerClient!.createPublishReportTransaction(report);
@@ -162,62 +163,38 @@ export default function NewReport() {
     // setState({ ...state, creatingTransaction: false, hash: hash });
     setForm4output("ok")
   }
+
   useEffect(() => {
-
     // Null checks for possibly null variables
-const showverifierBtn = document.getElementById('verifierBtn');
-const showadminBtn = document.getElementById('adminBtn');
-const showorgaizationBtn = document.getElementById('orgaizationBtn');
-
-// Show verifier button
-showverifierBtn?.addEventListener('click', () => {
-  toggleVisibility('.verifier');
-});
-
-showadminBtn?.addEventListener('click', () => {
-  toggleVisibility('.admin');
-}
-);
-
-showorgaizationBtn?.addEventListener('click', () => {
-  toggleVisibility('.organization');
-}
-);
-
-const toggleVisibility = (visibleClass) => {
-  const VerifierDiv = document.querySelector('.verifier');
-  const AdminDiv = document.querySelector('.admin');
-  const OrganizationDiv = document.querySelector('.organization');
-
-  VerifierDiv.classList.remove('visible');
-  AdminDiv.classList.remove('visible');
-  OrganizationDiv.classList.remove('visible');
-
-  document.querySelector(visibleClass).classList.add('visible');
-};
-
-
-// Show admin button
-showadminBtn?.addEventListener('click', () => {
-  const verifier = document.getElementById('verifier');
-  const admin = document.getElementById('admin');
-  const organization = document.getElementById('organization');
-  verifier?.classList.add('hidden');
-  admin?.classList.remove('hidden');
-  organization?.classList.add('hidden');
-} 
-);
-// Show organization button
-showorgaizationBtn?.addEventListener('click', () => {
-  const verifier = document.getElementById('verifier');
-  const admin = document.getElementById('admin');
-  const organization = document.getElementById('organization');
-  verifier?.classList.add('hidden');
-  admin?.classList.add('hidden');
-  organization?.classList.remove('hidden');
-}
-);
-
+    const showverifierBtn = document.getElementById('verifierBtn');
+    const showadminBtn = document.getElementById('adminBtn');
+    const showorgaizationBtn = document.getElementById('orgaizationBtn');
+  
+    // Show verifier button
+    showverifierBtn.addEventListener('click', () => {
+      toggleVisibility('.verifier');
+    });
+  
+    showadminBtn.addEventListener('click', () => {
+      toggleVisibility('.admin');
+    });
+  
+    showorgaizationBtn.addEventListener('click', () => {
+      toggleVisibility('.organization');
+    });
+  
+    const toggleVisibility = (visibleClass: string) => {
+      const VerifierDiv = document.querySelector('.verifier');
+      const AdminDiv = document.querySelector('.admin');
+      const OrganizationDiv = document.querySelector('.organization');
+  
+      VerifierDiv?.classList.remove('visible');
+      AdminDiv?.classList.remove('visible');
+      OrganizationDiv?.classList.remove('visible');
+  
+      document.querySelector(visibleClass)?.classList.add('visible');
+    };
+  
     async function timeout(seconds: number): Promise<void> {
       return new Promise<void>((resolve) => {
         setTimeout(() => {
@@ -225,55 +202,55 @@ showorgaizationBtn?.addEventListener('click', () => {
         }, seconds * 1000);
       });
     }
-
+  
     (async () => {
-      doShowOverlay()
+      doShowOverlay();
       if (!state.hasBeenSetup) {
         myLog('Loading web worker...');
         console.log('Loading web worker...');
         const zkappWorkerClient = new ZkappWorkerClient();
         await timeout(5);
-
+  
         myLog('Done loading web worker');
-
+  
         await zkappWorkerClient.setActiveInstanceToBerkeley();
-
+  
         const mina = (window as any).mina;
-
+  
         if (mina == null) {
           setState({ ...state, hasWallet: false });
           return;
         }
         const publicKeyBase58: string = (await mina.requestAccounts())[0];
         const publicKey = PublicKey.fromBase58(publicKeyBase58);
-
+  
         myLog('public key: ', publicKey.toBase58());
-
+  
         myLog('checking if account exists...');
         const res = await zkappWorkerClient.fetchAccount({
           publicKey: publicKey!,
         });
         const accountExists = res.error == null;
-
+  
         await zkappWorkerClient.loadContract();
-
+  
         myLog('compiling zkApp');
         await zkappWorkerClient.compileContract();
         myLog('zkApp compiled');
-
+  
         const zkappPublicKey = PublicKey.fromBase58(
           'B62qj5vSsQiuugm8oYkYf5mXgaPQf32JZ9AaGuS9QsCpC19PEHLUjhs'
         );
-
+  
         await zkappWorkerClient.initZkappInstance(zkappPublicKey);
-
+  
         myLog('getting zkApp state...');
         await zkappWorkerClient.fetchAccount({ publicKey: zkappPublicKey });
-        myLog('READY!')
-        doHideOverlay()
+        myLog('READY!');
+        doHideOverlay();
         // const currentNum = await zkappWorkerClient.getNum();
         // myLog('current state:', currentNum.toString());
-
+  
         setState({
           ...state,
           zkappWorkerClient,
@@ -284,15 +261,14 @@ showorgaizationBtn?.addEventListener('click', () => {
           accountExists,
           // currentNum,
         });
-
       }
-
-
     })();
+  
   }, []);
+  
 
 
-  const [organizationId, setorganizationId] = useState("");
+  const [organizationID, setorganizationID] = useState("");
   const [validUntil, setValidUntil] = useState("");
   const [recyclableamount, setrecyclableamount] = useState("");
   const [condition_1, setCondition_1] = useState("");
@@ -353,7 +329,7 @@ showorgaizationBtn?.addEventListener('click', () => {
           className="main-form"
           onSubmit={(e: any) => {
             publishReport(buildReportFromFormInput({
-              organizationId: organizationId,
+              organizationId: organizationID,
               validUntil,
               recyclableamount,
               hasConditionA: condition_1,
@@ -374,7 +350,7 @@ showorgaizationBtn?.addEventListener('click', () => {
               type="text"
               placeholder="123"
               onChange={(e) => {
-                setorganizationId(e.target.value);
+                setorganizationID(e.target.value);
               }}
             ></input>
           </div>
