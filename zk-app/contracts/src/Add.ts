@@ -5,7 +5,8 @@ import { Field,
   method,
   Poseidon,
   Bool,
-  Struct } from 'o1js';
+  Struct, 
+  Provable} from 'o1js';
 
   // lets create a class that contains the report
   export class Report extends Struct({
@@ -29,10 +30,13 @@ import { Field,
     allowConditionC: Bool,
   }) {}
   
+  // this is the hash function for the report to be published
   function hashReport(report: Report) {
     return Poseidon.hash(Report.toFields(report));
   }
 
+
+  // this is the main class for the contract
   export class RecycleCompany extends SmartContract {
     events = {
       verified: Field,
@@ -56,7 +60,7 @@ import { Field,
   }
 
 
-  // method to verify the proof
+  // method to publish the proof
   @method publishProof(
     report: Report,
     requirementsToCheck: Requirements
@@ -111,8 +115,8 @@ import { Field,
 
     const currentRequirementsHash = this.verifiedRequirementsHash.get()
 
-    console.log('incoming requirements hash: ', requirementsHashToCheck)
-    console.log('current requirements hash: ', currentRequirementsHash)
+    // Provable.log('incoming requirements hash: ', requirementsHashToCheck)
+    // console.log('current requirements hash: ', currentRequirementsHash)
 
     currentRequirementsHash.assertGreaterThan(Field(0));
     this.verifiedRequirementsHash.assertEquals(requirementsHashToCheck);

@@ -1,2 +1,2 @@
-import { Add } from './Add.js';
-export { Add };
+import { RecycleCompany } from './Add.js';
+export { RecycleCompany };

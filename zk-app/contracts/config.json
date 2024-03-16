@@ -8,6 +8,14 @@
       "feepayerKeyPath": "/Users/sambit/.cache/zkapp-cli/keys/account.json",
       "feepayerAlias": "account",
       "fee": "0.1"
+    },
+    "recyclecompany": {
+      "networkId": "testnet",
+      "url": "https://proxy.berkeley.minaexplorer.com/graphql",
+      "keyPath": "keys/recyclecompany.json",
+      "feepayerKeyPath": "/Users/sambit/.cache/zkapp-cli/keys/account.json",
+      "feepayerAlias": "account",
+      "fee": "0.1"
     }
   }
 }
