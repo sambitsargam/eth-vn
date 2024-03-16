@@ -3,7 +3,7 @@ import walletConnectModule from "@web3-onboard/walletconnect";
 import injectedModule from "@web3-onboard/injected-wallets";
 import Onboard from "@web3-onboard/core";
 // import logo1 from "../assets/recycling.jpg";
-import logo1 from "../assets/banner.jpg";
+import logo1 from "../assets/banner.png";
 // import { TransactionContext } from "../context/TransactionContext";
 
 const walletConnect = walletConnectModule();

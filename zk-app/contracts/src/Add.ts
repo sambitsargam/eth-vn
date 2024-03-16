@@ -96,7 +96,6 @@ import { Field,
   }
 
   // here is the method to verify the organization having 
-
   @method VerifyOrganization(requirementsToCheck: Requirements) {
     const requirementsHashToCheck = Poseidon.hash(
       [
