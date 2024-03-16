@@ -12,6 +12,7 @@ const injected = injectedModule();
 const modules = [walletConnect, injected];
 
 const RPC_URL = "https://rpc.public.zkevm-test.net";
+const LRPC_URL = "https://rpc.goerli.linea.build/";
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
@@ -22,6 +23,13 @@ const onboard = Onboard({
       namespace: "evm",
       label: "ZKEVM Polygon Testnet",
       rpcUrl: RPC_URL,
+    },
+    {
+      id: "0xe704",
+      token: "ETH",
+      namespace: "evm",
+      label: "linea Goerli Testnet",
+      rpcUrl: LRPC_URL,
     },
   ],
   appMetadata: {
@@ -49,6 +57,8 @@ const Welcome = () => {
       console.error(error);
     }
   };
+
+  //TODO add function to check the address existance
 
   return (
     <div className="flex w-full mf:flex-row flex-col justify-center items-center">

@@ -26,6 +26,10 @@ export default function Sender() {
   // const rpcUrl = "https://matic-mumbai.chainstacklabs.com";
   // const rpcUrl = "http://localhost:8545";
 
+  // lets define the rpc url for the network we want to connect to by chain id
+  const zkrpcurl = "https://rpc.public.zkevm-test.net";
+  const lineaurl  = "https://rpc.goerli.linea.build/";
+
   async function loadWaste() {
     /* create a generic provider and query for Wastes */
     const provider = new ethers.providers.JsonRpcProvider("https://rpc.public.zkevm-test.net");

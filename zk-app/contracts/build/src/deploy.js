@@ -1,4 +1,4 @@
-import { Mina, PrivateKey, AccountUpdate } from 'o1js';
+import { Mina, PrivateKey } from 'o1js';
 import { RecycleCompany } from './Add.js';
 let feepayerKeysBase58 = { privateKey: 'EKDoFmBGfHteBy85hLZhE1gvMtetAEtphE3zD5tidEQ3i7hfGMfW', publicKey: 'B62qn6PytZJUJAVjZbFssM69C6F9JsvvBEBkHCue1QmfwLgAazYR8m6' };
 let zkAppKeysBase58 = { privateKey: 'EKFV9JM6NaMQi2xWQfjPN4szL6SKqh8gsPCsHzQKYdf3HBSRLqM3', publicKey: 'B62qj5vSsQiuugm8oYkYf5mXgaPQf32JZ9AaGuS9QsCpC19PEHLUjhs' };
@@ -23,7 +23,7 @@ try {
     // call update() and send transaction
     console.log('build transaction and create proof...');
     let tx = await Mina.transaction({ sender: feepayerAddress, fee }, () => {
-        AccountUpdate.fundNewAccount(feepayerAddress, 1);
+        // AccountUpdate.fundNewAccount(feepayerAddress, 1);
         zkApp.deploy();
     });
     await tx.prove();

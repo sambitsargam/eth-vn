@@ -1,36 +1,32 @@
 import { SmartContract, State } from 'o1js';
 declare const Report_base: (new (value: {
-    requiredhash: import("o1js/dist/node/lib/field").Field;
+    organizationId: import("o1js/dist/node/lib/field").Field;
     validUntil: import("o1js/dist/node/lib/field").Field;
     recyclableamount: import("o1js/dist/node/lib/field").Field;
-    address: import("o1js/dist/node/lib/field").Field;
     hasConditionA: import("o1js/dist/node/lib/bool").Bool;
     hasConditionB: import("o1js/dist/node/lib/bool").Bool;
     hasConditionC: import("o1js/dist/node/lib/bool").Bool;
 }) => {
-    requiredhash: import("o1js/dist/node/lib/field").Field;
+    organizationId: import("o1js/dist/node/lib/field").Field;
     validUntil: import("o1js/dist/node/lib/field").Field;
     recyclableamount: import("o1js/dist/node/lib/field").Field;
-    address: import("o1js/dist/node/lib/field").Field;
     hasConditionA: import("o1js/dist/node/lib/bool").Bool;
     hasConditionB: import("o1js/dist/node/lib/bool").Bool;
     hasConditionC: import("o1js/dist/node/lib/bool").Bool;
 }) & {
     _isStruct: true;
 } & import("o1js/dist/node/snarky").ProvablePure<{
-    requiredhash: import("o1js/dist/node/lib/field").Field;
+    organizationId: import("o1js/dist/node/lib/field").Field;
     validUntil: import("o1js/dist/node/lib/field").Field;
     recyclableamount: import("o1js/dist/node/lib/field").Field;
-    address: import("o1js/dist/node/lib/field").Field;
     hasConditionA: import("o1js/dist/node/lib/bool").Bool;
     hasConditionB: import("o1js/dist/node/lib/bool").Bool;
     hasConditionC: import("o1js/dist/node/lib/bool").Bool;
 }> & {
     toInput: (x: {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         validUntil: import("o1js/dist/node/lib/field").Field;
         recyclableamount: import("o1js/dist/node/lib/field").Field;
-        address: import("o1js/dist/node/lib/field").Field;
         hasConditionA: import("o1js/dist/node/lib/bool").Bool;
         hasConditionB: import("o1js/dist/node/lib/bool").Bool;
         hasConditionC: import("o1js/dist/node/lib/bool").Bool;
@@ -39,44 +35,39 @@ declare const Report_base: (new (value: {
         packed?: [import("o1js/dist/node/lib/field").Field, number][] | undefined;
     };
     toJSON: (x: {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         validUntil: import("o1js/dist/node/lib/field").Field;
         recyclableamount: import("o1js/dist/node/lib/field").Field;
-        address: import("o1js/dist/node/lib/field").Field;
         hasConditionA: import("o1js/dist/node/lib/bool").Bool;
         hasConditionB: import("o1js/dist/node/lib/bool").Bool;
         hasConditionC: import("o1js/dist/node/lib/bool").Bool;
     }) => {
-        requiredhash: string;
+        organizationId: string;
         validUntil: string;
         recyclableamount: string;
-        address: string;
         hasConditionA: boolean;
         hasConditionB: boolean;
         hasConditionC: boolean;
     };
     fromJSON: (x: {
-        requiredhash: string;
+        organizationId: string;
         validUntil: string;
         recyclableamount: string;
-        address: string;
         hasConditionA: boolean;
         hasConditionB: boolean;
         hasConditionC: boolean;
     }) => {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         validUntil: import("o1js/dist/node/lib/field").Field;
         recyclableamount: import("o1js/dist/node/lib/field").Field;
-        address: import("o1js/dist/node/lib/field").Field;
         hasConditionA: import("o1js/dist/node/lib/bool").Bool;
         hasConditionB: import("o1js/dist/node/lib/bool").Bool;
         hasConditionC: import("o1js/dist/node/lib/bool").Bool;
     };
     empty: () => {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         validUntil: import("o1js/dist/node/lib/field").Field;
         recyclableamount: import("o1js/dist/node/lib/field").Field;
-        address: import("o1js/dist/node/lib/field").Field;
         hasConditionA: import("o1js/dist/node/lib/bool").Bool;
         hasConditionB: import("o1js/dist/node/lib/bool").Bool;
         hasConditionC: import("o1js/dist/node/lib/bool").Bool;
@@ -85,7 +76,7 @@ declare const Report_base: (new (value: {
 export declare class Report extends Report_base {
 }
 declare const Requirements_base: (new (value: {
-    requiredhash: import("o1js/dist/node/lib/field").Field;
+    organizationId: import("o1js/dist/node/lib/field").Field;
     verifyTime: import("o1js/dist/node/lib/field").Field;
     minrecyclableamount: import("o1js/dist/node/lib/field").Field;
     maxrecyclableamount: import("o1js/dist/node/lib/field").Field;
@@ -93,7 +84,7 @@ declare const Requirements_base: (new (value: {
     allowConditionB: import("o1js/dist/node/lib/bool").Bool;
     allowConditionC: import("o1js/dist/node/lib/bool").Bool;
 }) => {
-    requiredhash: import("o1js/dist/node/lib/field").Field;
+    organizationId: import("o1js/dist/node/lib/field").Field;
     verifyTime: import("o1js/dist/node/lib/field").Field;
     minrecyclableamount: import("o1js/dist/node/lib/field").Field;
     maxrecyclableamount: import("o1js/dist/node/lib/field").Field;
@@ -103,7 +94,7 @@ declare const Requirements_base: (new (value: {
 }) & {
     _isStruct: true;
 } & import("o1js/dist/node/snarky").ProvablePure<{
-    requiredhash: import("o1js/dist/node/lib/field").Field;
+    organizationId: import("o1js/dist/node/lib/field").Field;
     verifyTime: import("o1js/dist/node/lib/field").Field;
     minrecyclableamount: import("o1js/dist/node/lib/field").Field;
     maxrecyclableamount: import("o1js/dist/node/lib/field").Field;
@@ -112,7 +103,7 @@ declare const Requirements_base: (new (value: {
     allowConditionC: import("o1js/dist/node/lib/bool").Bool;
 }> & {
     toInput: (x: {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         verifyTime: import("o1js/dist/node/lib/field").Field;
         minrecyclableamount: import("o1js/dist/node/lib/field").Field;
         maxrecyclableamount: import("o1js/dist/node/lib/field").Field;
@@ -124,7 +115,7 @@ declare const Requirements_base: (new (value: {
         packed?: [import("o1js/dist/node/lib/field").Field, number][] | undefined;
     };
     toJSON: (x: {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         verifyTime: import("o1js/dist/node/lib/field").Field;
         minrecyclableamount: import("o1js/dist/node/lib/field").Field;
         maxrecyclableamount: import("o1js/dist/node/lib/field").Field;
@@ -132,7 +123,7 @@ declare const Requirements_base: (new (value: {
         allowConditionB: import("o1js/dist/node/lib/bool").Bool;
         allowConditionC: import("o1js/dist/node/lib/bool").Bool;
     }) => {
-        requiredhash: string;
+        organizationId: string;
         verifyTime: string;
         minrecyclableamount: string;
         maxrecyclableamount: string;
@@ -141,7 +132,7 @@ declare const Requirements_base: (new (value: {
         allowConditionC: boolean;
     };
     fromJSON: (x: {
-        requiredhash: string;
+        organizationId: string;
         verifyTime: string;
         minrecyclableamount: string;
         maxrecyclableamount: string;
@@ -149,7 +140,7 @@ declare const Requirements_base: (new (value: {
         allowConditionB: boolean;
         allowConditionC: boolean;
     }) => {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         verifyTime: import("o1js/dist/node/lib/field").Field;
         minrecyclableamount: import("o1js/dist/node/lib/field").Field;
         maxrecyclableamount: import("o1js/dist/node/lib/field").Field;
@@ -158,7 +149,7 @@ declare const Requirements_base: (new (value: {
         allowConditionC: import("o1js/dist/node/lib/bool").Bool;
     };
     empty: () => {
-        requiredhash: import("o1js/dist/node/lib/field").Field;
+        organizationId: import("o1js/dist/node/lib/field").Field;
         verifyTime: import("o1js/dist/node/lib/field").Field;
         minrecyclableamount: import("o1js/dist/node/lib/field").Field;
         maxrecyclableamount: import("o1js/dist/node/lib/field").Field;

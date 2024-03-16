@@ -10,10 +10,9 @@ import { Field,
 
   // lets create a class that contains the report
   export class Report extends Struct({
-    requiredhash: Field,
+    organizationId: Field,
     validUntil: Field,
     recyclableamount: Field,
-    address: Field,
     hasConditionA: Bool,
     hasConditionB: Bool,
     hasConditionC: Bool,
@@ -21,7 +20,7 @@ import { Field,
 
   // class for requirements
   export class Requirements extends Struct({
-    requiredhash: Field,
+    organizationId: Field,
     verifyTime: Field,
     minrecyclableamount: Field,
     maxrecyclableamount: Field,
@@ -69,7 +68,7 @@ import { Field,
 
     this.reporthash.assertEquals(hash);
 
-    report.requiredhash.assertEquals(requirementsToCheck.requiredhash);
+    report.organizationId.assertEquals(requirementsToCheck.organizationId);
 
     requirementsToCheck.verifyTime.assertLessThanOrEqual(report.validUntil);
 
@@ -88,7 +87,7 @@ import { Field,
 
     this.verifiedRequirementsHash.set(
       Poseidon.hash([
-        new Field(requirementsToCheck.requiredhash),
+        new Field(requirementsToCheck.organizationId),
         new Field(requirementsToCheck.verifyTime),
         new Field(requirementsToCheck.minrecyclableamount),
         new Field(requirementsToCheck.maxrecyclableamount),
@@ -103,7 +102,7 @@ import { Field,
   @method VerifyOrganization(requirementsToCheck: Requirements) {
     const requirementsHashToCheck = Poseidon.hash(
       [
-        new Field(requirementsToCheck.requiredhash),
+        new Field(requirementsToCheck.organizationId),
         new Field(requirementsToCheck.verifyTime),
         new Field(requirementsToCheck.minrecyclableamount),
         new Field(requirementsToCheck.maxrecyclableamount),

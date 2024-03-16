@@ -10,10 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Field, SmartContract, state, State, method, Poseidon, Bool, Struct } from 'o1js';
 // lets create a class that contains the report
 export class Report extends Struct({
-    requiredhash: Field,
+    organizationId: Field,
     validUntil: Field,
     recyclableamount: Field,
-    address: Field,
     hasConditionA: Bool,
     hasConditionB: Bool,
     hasConditionC: Bool,
@@ -21,7 +20,7 @@ export class Report extends Struct({
 }
 // class for requirements
 export class Requirements extends Struct({
-    requiredhash: Field,
+    organizationId: Field,
     verifyTime: Field,
     minrecyclableamount: Field,
     maxrecyclableamount: Field,
@@ -59,7 +58,7 @@ export class RecycleCompany extends SmartContract {
     publishProof(report, requirementsToCheck) {
         const hash = hashReport(report);
         this.reporthash.assertEquals(hash);
-        report.requiredhash.assertEquals(requirementsToCheck.requiredhash);
+        report.organizationId.assertEquals(requirementsToCheck.organizationId);
         requirementsToCheck.verifyTime.assertLessThanOrEqual(report.validUntil);
         report.recyclableamount.assertGreaterThanOrEqual(requirementsToCheck.minrecyclableamount);
         report.recyclableamount.assertLessThanOrEqual(requirementsToCheck.maxrecyclableamount);
@@ -69,7 +68,7 @@ export class RecycleCompany extends SmartContract {
             .or(requirementsToCheck.allowConditionC.and(report.hasConditionC))
             .assertTrue();
         this.verifiedRequirementsHash.set(Poseidon.hash([
-            new Field(requirementsToCheck.requiredhash),
+            new Field(requirementsToCheck.organizationId),
             new Field(requirementsToCheck.verifyTime),
             new Field(requirementsToCheck.minrecyclableamount),
             new Field(requirementsToCheck.maxrecyclableamount),
@@ -81,7 +80,7 @@ export class RecycleCompany extends SmartContract {
     // here is the method to verify the organization having 
     VerifyOrganization(requirementsToCheck) {
         const requirementsHashToCheck = Poseidon.hash([
-            new Field(requirementsToCheck.requiredhash),
+            new Field(requirementsToCheck.organizationId),
             new Field(requirementsToCheck.verifyTime),
             new Field(requirementsToCheck.minrecyclableamount),
             new Field(requirementsToCheck.maxrecyclableamount),
