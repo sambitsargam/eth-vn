@@ -42,7 +42,7 @@ export type ReportFormInput = {
 
 export function buildReportFromFormInput(input: ReportFormInput): Report {
   return {
-    requiredhash: new Field(hashorganizationId(input.organizationId)),
+    organizationId: new Field(hashorganizationId(input.organizationId)),
     validUntil: new Field(stringToNumber(input.validUntil)),
     recyclableamount: new Field(stringToNumber(input.recyclableamount)),
     hasConditionA: new Bool(myParseBool(input.hasConditionA)),
@@ -54,7 +54,7 @@ export function buildReportFromFormInput(input: ReportFormInput): Report {
 export function reportFromJson(json: string): Report {
   const raw = JSON.parse(json)
   return {
-    requiredhash: new Field(raw.requiredhash),
+    organizationId: new Field(raw.requiredhash),
     validUntil: new Field(raw.validUntil),
     recyclableamount: new Field(raw.recyclableamount),
     hasConditionA: new Bool(raw.hasConditionA),
@@ -76,7 +76,7 @@ export type RequirementsFormInput = {
 
 export function buildRequirementsFromFormInput(input: RequirementsFormInput): Requirements {
   return {
-    requiredhash: new Field(hashorganizationId(input.organizationId)),
+    organizationId: new Field(hashorganizationId(input.organizationId)),
     verifyTime: new Field(stringToNumber(input.verifyTime)),
     minrecyclableamount: new Field(stringToNumber(input.minrecyclableamount)),
     maxrecyclableamount: new Field(stringToNumber(input.maxrecyclableamount)),
@@ -90,7 +90,7 @@ export function buildRequirementsFromFormInput(input: RequirementsFormInput): Re
 export function requirementsFromJson(json: string): Requirements {
   const raw = JSON.parse(json)
   return {
-    requiredhash: new Field(raw.requiredhash),
+    organizationId: new Field(raw.requiredhash),
     verifyTime: new Field(raw.verifyTime),
     minrecyclableamount: new Field(raw.minrecyclableamount),
     maxrecyclableamount: new Field(raw.maxrecyclableamount),

@@ -17,7 +17,7 @@ const state = {
 const functions = {
   setActiveInstanceToBerkeley: async (args: {}) => {
     const Berkeley = Mina.Network(
-      'https://proxy.berkeley.minaexplorer.com/graphql'
+      'https://archive.berkeley.minaexplorer.com'
     );
     Mina.setActiveInstance(Berkeley);
   },
@@ -33,7 +33,7 @@ const functions = {
     return await fetchAccount({ publicKey });
   },
   initZkappInstance: async (args: { publicKey58: string }) => {
-    const publicKey = PublicKey.fromBase58('B62qp2ECA8W7meWdBoCbuqSVKMUZBdiknbN2gqePRZkXrRqrZfsXLy7');
+    const publicKey = PublicKey.fromBase58('B62qj5vSsQiuugm8oYkYf5mXgaPQf32JZ9AaGuS9QsCpC19PEHLUjhs');
   },
   getRequirementsHash: async (args: {}) => {
     const currentNum = await state.zkapp!.verifiedRequirementsHash.fetch();

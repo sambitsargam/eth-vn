@@ -164,21 +164,45 @@ export default function NewReport() {
   }
   useEffect(() => {
 
-    const showverifierBtn = document.getElementById('verifierBtn');
-    const showadminBtn = document.getElementById('adminBtn');
-    const showorgaizationBtn = document.getElementById('orgaizationBtn');
+    // Null checks for possibly null variables
+const showverifierBtn = document.getElementById('verifierBtn');
+const showadminBtn = document.getElementById('adminBtn');
+const showorgaizationBtn = document.getElementById('orgaizationBtn');
 
-    showverifierBtn.addEventListener('click', () => {
-      toggleVisibility('.doctor');
-    });
+if (showverifierBtn) {
+  showverifierBtn.addEventListener('click', () => {
+    toggleVisibility('.verifier');
+  });
+}
 
-    showadminBtn.addEventListener('click', () => {
-      toggleVisibility('.employer');
-    });
+if (showadminBtn) {
+  showadminBtn.addEventListener('click', () => {
+    toggleVisibility('.admin');
+  });
+}
 
-    showorgaizationBtn.addEventListener('click', () => {
-      toggleVisibility('.patient');
-    });
+if (showorgaizationBtn) {
+  showorgaizationBtn.addEventListener('click', () => {
+    toggleVisibility('.organization');
+  });
+}
+
+// Explicitly define type for the parameter
+const toggleVisibility = (visibleClass: string) => {
+  // Null checks for possibly null elements
+  const doctorDiv = document.querySelector('.verifier');
+  const employerDiv = document.querySelector('.admin');
+  const patientDiv = document.querySelector('.organization');
+
+  if (doctorDiv && employerDiv && patientDiv) {
+    doctorDiv.classList.remove('visible');
+    employerDiv.classList.remove('visible');
+    patientDiv.classList.remove('visible');
+
+    document.querySelector(visibleClass)?.classList.add('visible');
+  }
+};
+
 
     async function timeout(seconds: number): Promise<void> {
       return new Promise<void>((resolve) => {
@@ -252,19 +276,6 @@ export default function NewReport() {
 
     })();
   }, []);
-
-  const toggleVisibility = (visibleClass) => {
-
-    const doctorDiv = document.querySelector('.verifier');
-    const employerDiv = document.querySelector('.admin');
-    const patientDiv = document.querySelector('.organization');
-
-    doctorDiv.classList.remove('visible');
-    employerDiv.classList.remove('visible');
-    patientDiv.classList.remove('visible');
-
-    document.querySelector(visibleClass).classList.add('visible');
-  };
 
 
   const [organizationId, setorganizationId] = useState("");
@@ -437,7 +448,7 @@ export default function NewReport() {
         </div>
 
         <div className="employer">
-        <h1>Employer - Request Account Proof from Organization</h1>
+        <h1>Admin - Request Account Proof from Organization</h1>
         <NewRequest submitRequest={submitRequest} />
         {form2output && (<>
           <h1>Requirements request for Organization</h1>
