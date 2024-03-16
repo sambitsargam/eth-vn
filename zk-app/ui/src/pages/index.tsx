@@ -171,14 +171,32 @@ const showorgaizationBtn = document.getElementById('orgaizationBtn');
 
 // Show verifier button
 showverifierBtn?.addEventListener('click', () => {
-  const verifier = document.getElementById('verifier');
-  const admin = document.getElementById('admin');
-  const organization = document.getElementById('organization');
-  verifier?.classList.remove('hidden');
-  admin?.classList.add('hidden');
-  organization?.classList.add('hidden');
+  toggleVisibility('.verifier');
+});
+
+showadminBtn?.addEventListener('click', () => {
+  toggleVisibility('.admin');
 }
 );
+
+showorgaizationBtn?.addEventListener('click', () => {
+  toggleVisibility('.organization');
+}
+);
+
+const toggleVisibility = (visibleClass) => {
+  const VerifierDiv = document.querySelector('.verifier');
+  const AdminDiv = document.querySelector('.admin');
+  const OrganizationDiv = document.querySelector('.organization');
+
+  VerifierDiv.classList.remove('visible');
+  AdminDiv.classList.remove('visible');
+  OrganizationDiv.classList.remove('visible');
+
+  document.querySelector(visibleClass).classList.add('visible');
+};
+
+
 // Show admin button
 showadminBtn?.addEventListener('click', () => {
   const verifier = document.getElementById('verifier');
@@ -328,7 +346,7 @@ showorgaizationBtn?.addEventListener('click', () => {
       )}
       <Sidebar />
       <div className="generate-keys">
-        <div className="doctor">
+        <div className="verifier">
         <h1>Organization Request - Report with Conditions</h1>
 
         <form
@@ -443,7 +461,7 @@ showorgaizationBtn?.addEventListener('click', () => {
         </>)}
         </div>
 
-        <div className="employer">
+        <div className="admin">
         <h1>Admin - Request Account Proof from Organization</h1>
         <NewRequest submitRequest={submitRequest} />
         {form2output && (<>
@@ -462,7 +480,7 @@ showorgaizationBtn?.addEventListener('click', () => {
 
         </div>
 
-        <div className="patient">
+        <div className="organization">
         <h1>Organization - Submit Account Proof</h1>
         <Proofs submitProofs={submitProofs} />
         {form3output && (<>

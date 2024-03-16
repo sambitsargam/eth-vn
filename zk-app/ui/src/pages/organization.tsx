@@ -28,7 +28,7 @@ export default function Organization() {
   return (
     <div>
         <Sidebar />
-        <div className="patients bg-gray-100 w-{100rem} generate-keys">
+        <div className="organizations bg-gray-100 w-{100rem} generate-keys">
       <h1>Organizations</h1>
       <form className="main-form" action="" method="get">
         {Organizations.map(({ name, num_past_reports, last_report_date, acceptance, public_key }) => (
