@@ -46,6 +46,7 @@ const functions = {
     state.transaction = transaction;
   },
   createPublishProofsTransaction: async (args: { report: Report, requirements: Requirements }) => {
+    console.log('createPublishProofsTransaction: ', args.report, args.requirements)
     const transaction = await Mina.transaction(() => {
       state.zkapp!.publishProof(args.report, args.requirements);
     });

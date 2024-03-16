@@ -169,40 +169,36 @@ const showverifierBtn = document.getElementById('verifierBtn');
 const showadminBtn = document.getElementById('adminBtn');
 const showorgaizationBtn = document.getElementById('orgaizationBtn');
 
-if (showverifierBtn) {
-  showverifierBtn.addEventListener('click', () => {
-    toggleVisibility('.verifier');
-  });
+// Show verifier button
+showverifierBtn?.addEventListener('click', () => {
+  const verifier = document.getElementById('verifier');
+  const admin = document.getElementById('admin');
+  const organization = document.getElementById('organization');
+  verifier?.classList.remove('hidden');
+  admin?.classList.add('hidden');
+  organization?.classList.add('hidden');
 }
-
-if (showadminBtn) {
-  showadminBtn.addEventListener('click', () => {
-    toggleVisibility('.admin');
-  });
+);
+// Show admin button
+showadminBtn?.addEventListener('click', () => {
+  const verifier = document.getElementById('verifier');
+  const admin = document.getElementById('admin');
+  const organization = document.getElementById('organization');
+  verifier?.classList.add('hidden');
+  admin?.classList.remove('hidden');
+  organization?.classList.add('hidden');
+} 
+);
+// Show organization button
+showorgaizationBtn?.addEventListener('click', () => {
+  const verifier = document.getElementById('verifier');
+  const admin = document.getElementById('admin');
+  const organization = document.getElementById('organization');
+  verifier?.classList.add('hidden');
+  admin?.classList.add('hidden');
+  organization?.classList.remove('hidden');
 }
-
-if (showorgaizationBtn) {
-  showorgaizationBtn.addEventListener('click', () => {
-    toggleVisibility('.organization');
-  });
-}
-
-// Explicitly define type for the parameter
-const toggleVisibility = (visibleClass: string) => {
-  // Null checks for possibly null elements
-  const doctorDiv = document.querySelector('.verifier');
-  const employerDiv = document.querySelector('.admin');
-  const patientDiv = document.querySelector('.organization');
-
-  if (doctorDiv && employerDiv && patientDiv) {
-    doctorDiv.classList.remove('visible');
-    employerDiv.classList.remove('visible');
-    patientDiv.classList.remove('visible');
-
-    document.querySelector(visibleClass)?.classList.add('visible');
-  }
-};
-
+);
 
     async function timeout(seconds: number): Promise<void> {
       return new Promise<void>((resolve) => {
