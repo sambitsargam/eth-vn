@@ -40,6 +40,11 @@ GreenLink introduces a decentralized platform that facilitates the buying, selli
   
 - **Zero-Knowledge App:** [MinaScan - Berkeley](https://minascan.io/berkeley/account/B62qj5vSsQiuugm8oYkYf5mXgaPQf32JZ9AaGuS9QsCpC19PEHLUjhs)
 
+## Links
+- **Demo Video:**  https://youtu.be/s2gNnsb9XKU
+  
+- **Demo Link:** https://greenlink.vercel.app/
+
 ## Conclusion
 
 GreenLink is at the forefront of a green revolution, redefining waste recycling as a collective endeavor driven by technology, sustainability, and community engagement. Join us in building a greener, cleaner, and more sustainable future with GreenLink.
