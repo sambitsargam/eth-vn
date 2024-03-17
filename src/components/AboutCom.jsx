@@ -6,11 +6,11 @@ const AboutCom = () => (
     <div className="flex mf:flex-row flex-col items-center justify-between md:p-20 py-12 px-4">
       <div className="flex-1 flex flex-col justify-start items-start">
         <h1 className="text-white text-3xl sm:text-5xl py-2 ">
-          About GreenChain
+          About GreenLink
           <br />
         </h1>
         <p className="text-left my-2 text-white font-light md:w-9/12 w-11/12 text-2xl text-justify">
-          GreenChain is an Environmental & Recycling Solutions that is committed to
+          GreenLink is an Environmental & Recycling Solutions that is committed to
           providing web3 recycling services to sound services to the commercial
           and industrial community with innovative approaches to todays problems
           with tomorrow in mind.

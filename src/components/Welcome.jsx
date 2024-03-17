@@ -65,7 +65,7 @@ const Welcome = () => {
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 px-4">
         <div className="flex flex-1 justify-start items-start flex-col mf:mr-10 ">
           <h1 className="text-5xl sm:text-7xl text-white py-1 font-semibold">
-            GreenChain<br />
+            GreenLink<br />
           </h1>
           <br />
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-4xl ">
